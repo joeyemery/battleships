@@ -1,0 +1,41 @@
+/* ----------------------------------------------------
+
+	* Filename:		app.less
+
+	* Description:	The main LESS file in which all
+					other files are imported. Also
+					contains element specific styles.
+
+	* Updated:		21/07/2013
+		* By:		Joey Emery
+
+	== CONTENTS =======================================
+
+	- Imports
+		- config, reset, mixins, typography, icons, ui
+	- Body
+
+-----------------------------------------------------*/
+
+/*
+ * ================
+ * $IMPORTS
+ * ================
+ */
+
+@import 'config';		/* Used to store all site constants */ 
+@import 'reset';		/* Resets browser specific styles */
+@import 'mixins';		/* Contains all site mixins */
+@import 'typography';	/* Everything typography related; font faces, font sizes, etc */
+@import 'icons';		/* Deals with icons */
+@import 'ui';			/* Generic UI styles */
+
+/*
+ * ================
+ * $BODY
+ * ================
+ */
+
+body {
+	background:	@colour_base_bg;
+}
