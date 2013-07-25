@@ -3,11 +3,27 @@ define([
 	'underscore',
 	'backbone',
 	'text!../../../templates/dashboard.html',
-	'text!../../../templates/bookmark.html'
-], function($, _, Backbone, dashboardTemplate, bookmarkTemplate) {
+	'text!../../../templates/bookmark.html',
+	'models/SessionModel'
+], function($, _, Backbone, dashboardTemplate, bookmarkTemplate, Session) {
 
 	var DashboardView = Backbone.View.extend({
 		el: $('#page'),
+
+		initialize: function() {
+			// Render the template on initialize.
+			this.render();
+		},
+
+		events: {
+			'click .logout': 'logout'
+		},
+
+		logout: function(e) {
+			e.preventDefault();
+
+			Session.logout();
+		},
 
 		render: function() {
 			// Create a new underscore template from

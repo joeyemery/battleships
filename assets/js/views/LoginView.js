@@ -2,19 +2,34 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'models/SessionModel',
 	'text!../../../templates/login.html'
-], function($, _, Backbone, loginTemplate) {
+], function($, _, Backbone, Session, loginTemplate) {
 
 	var LoginView = Backbone.View.extend({
 		el: $('#page'),
 
-		events: {
-			'submit .login': 'onLoginSubmit'
+		initialize: function() {
+			// Render the template on initialize.
+			this.render();
 		},
 
-		onLoginSubmit: function(e) {
+		events: {
+			'submit .login': 'login',
+			'click .logout': 'logout'
+		},
+
+		logout: function() {
+			Session.logout();
+		},
+
+		login: function(e) {
 			e.preventDefault();
-			
+			Session.login({
+				username: $('#username').val(),
+				password: $('#password').val()
+			});
+
 			// Do login shizz.
 		},
 
